@@ -1,0 +1,35 @@
+<h1>Books#new</h1>
+<p>Find me in app/views/books/new.html.erb</p>
+<%= form_with url: "/search", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
+
+
+<%= form_with model: @book do |form| %>
+  <%= form.text_field :name %>
+  <%= form.text_area :writer, size: "60x10" %>
+
+<%= form.select :city,
+      {
+        "Europe" => [ ["Berlin", "BE"], ["Madrid", "MD"] ],
+        "North America" => [ ["Chicago", "CHI"] ],
+      },
+      selected: "CHI" %><br >
+      <%= form.time_zone_select :time_zone %>
+      <%= form_with model: @book do |f| %>
+        <%= f.file_field :picture %>
+      <% end %>
+      <%= form_with url: "/uploads", multipart: true do |f| %>
+        <%= file_field_tag :picture %>
+      <% end %>
+
+
+
+
+  <%= form.submit %>
+<% end %>
+
+<br>
+<a href="#" onclick="this.style.backgroundColor='#990000';event.preventDefault();">Paint it red</a>
