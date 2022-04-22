@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  writer: MyString
   year: 1
+  author: one
 
 two:
   name: MyString
-  writer: MyString
   year: 1
+  author: two

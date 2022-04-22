@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :customers
   resources :books
+  resources :authors
+  resources :customers
   resources :doctors
   namespace :auth do
     resources :students
